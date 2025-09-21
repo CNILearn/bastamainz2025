@@ -1,0 +1,38 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Semantics/">
+    <Project Path="SemanticsCompilation/SemanticsCompilation.csproj">
+      <Platform Solution="*|x86" Project="x86" />
+      <Platform Solution="Release|Any CPU" Project="x86" />
+      <Build Solution="Release|Any CPU" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/Syntax Analysis/">
+    <Project Path="SyntaxQuery/SyntaxQuery.csproj">
+      <Platform Solution="*|x86" Project="x86" />
+      <Platform Solution="Release|Any CPU" Project="x86" />
+      <Build Solution="Release|Any CPU" Project="false" />
+    </Project>
+    <Project Path="SyntaxWalker/SyntaxWalker.csproj">
+      <Platform Solution="*|x86" Project="x86" />
+      <Platform Solution="Release|Any CPU" Project="x86" />
+      <Build Solution="Release|Any CPU" Project="false" />
+    </Project>
+    <Project Path="WPFSyntaxTree/WPFSyntaxTree.csproj" />
+  </Folder>
+  <Folder Name="/Transformation/">
+    <Project Path="SyntaxRewriter/SyntaxRewriter.csproj">
+      <Platform Solution="*|x86" Project="x86" />
+      <Platform Solution="Release|Any CPU" Project="x86" />
+      <Build Solution="Release|Any CPU" Project="false" />
+    </Project>
+    <Project Path="TransformMethods/TransformMethods.csproj">
+      <Platform Solution="*|x86" Project="x86" />
+      <Platform Solution="Release|Any CPU" Project="x86" />
+      <Build Solution="Release|Any CPU" Project="false" />
+    </Project>
+  </Folder>
+</Solution>
