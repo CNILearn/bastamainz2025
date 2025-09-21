@@ -2,7 +2,7 @@
 
 Source code for BASTA! Mainz 2025
 
-## Source generators
+## Source Developing und Debugging Source Generators
 
 Mittwoch, 24. September 2025, 17:00 - 18:00 Uhr, Zagrebsaal
 
