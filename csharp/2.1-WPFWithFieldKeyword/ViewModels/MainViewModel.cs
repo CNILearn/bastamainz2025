@@ -1,8 +1,5 @@
 using System.Collections.ObjectModel;
 
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-
 using CSharp14FieldKeywordWpf.Models;
 
 namespace CSharp14FieldKeywordWpf.ViewModels;
@@ -11,16 +8,13 @@ namespace CSharp14FieldKeywordWpf.ViewModels;
 /// Main ViewModel demonstrating C# 14 field keyword usage in MVVM pattern.
 /// Shows improved readability and debugging experience.
 /// </summary>
-public partial class MainViewModel : ObservableObject
+public class MainViewModel : ObservableObjectModern
 {
     /// <summary>
     /// Currently selected user profile using field keyword
     /// Demonstrates cleaner property syntax with validation
     /// </summary>
-    [ObservableProperty]
-    [NotifyCanExecuteChangedFor(nameof(SaveUserCommand))]
-    [NotifyCanExecuteChangedFor(nameof(DeleteUserCommand))]
-    public partial UserProfileModern? SelectedUser {  get; set; }
+    public UserProfileModern? SelectedUser
     {
         get;
         set
@@ -31,8 +25,8 @@ public partial class MainViewModel : ObservableObject
                 OnPropertyChanged();
                 
                 // Update command states when selection changes
-                SaveUserCommand.NotifyCanExecuteChanged();
-                DeleteUserCommand.NotifyCanExecuteChanged();
+                SaveUserCommand.RaiseCanExecuteChanged();
+                DeleteUserCommand.RaiseCanExecuteChanged();
             }
         }
     }
@@ -86,9 +80,9 @@ public partial class MainViewModel : ObservableObject
                 OnPropertyChanged();
                 
                 // Update command states when busy state changes
-                AddUserCommand.NotifyCanExecuteChanged();
-                SaveUserCommand.NotifyCanExecuteChanged();
-                DeleteUserCommand.NotifyCanExecuteChanged();
+                AddUserCommand.RaiseCanExecuteChanged();
+                SaveUserCommand.RaiseCanExecuteChanged();
+                DeleteUserCommand.RaiseCanExecuteChanged();
             }
         }
     }
@@ -172,8 +166,7 @@ public partial class MainViewModel : ObservableObject
         SelectedUser = Users.FirstOrDefault();
     }
 
-[RelayCommand()]
-private async Task AddUser()
+    private async void AddUser()
     {
         IsBusy = true;
         StatusMessage = "Adding new user...";
@@ -208,8 +201,7 @@ private async Task AddUser()
         }
     }
 
-[RelayCommand(CanExecute = nameof(CanSaveUser))]
-private async void SaveUser()
+    private async void SaveUser()
     {
         if (SelectedUser == null) return;
 
@@ -234,8 +226,7 @@ private async void SaveUser()
         }
     }
 
-[RelayCommand(CanExecute = nameof(CanDeleteUser))]
-private async void DeleteUser()
+    private async void DeleteUser()
     {
         if (SelectedUser == null) return;
 
@@ -274,7 +265,6 @@ private async void DeleteUser()
         }
     }
 
-[RelayCommand]
     private async void RefreshUsers()
     {
         IsBusy = true;
