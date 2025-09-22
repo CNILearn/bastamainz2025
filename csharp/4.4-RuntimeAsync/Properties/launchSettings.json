@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RuntimeAsyncFeature": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_RuntimeAsync": "1"
+      }
+    }
+  }
+}
