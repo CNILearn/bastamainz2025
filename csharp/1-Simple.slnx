@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/1.0-EscapeCharacterGame/">
+    <Project Path="1.0-EscapeCharacterGame/EscapeCharacterGame.csproj" />
+  </Folder>
+  <Folder Name="/1.1-Beep/">
+    <Project Path="1.1-Beep/Beep.csproj" />
+  </Folder>
+  <Folder Name="/1.2-ImplicitIndexAccess/">
+    <Project Path="1.2-ImplicitIndexAccess/ImplicitIndexAccess.csproj" />
+  </Folder>
+  <Folder Name="/1.3-UnconstrainedGenerics/">
+    <Project Path="1.3-UnconstrainedGenerics/UnconstrainedGeneric.csproj" />
+  </Folder>
+</Solution>
