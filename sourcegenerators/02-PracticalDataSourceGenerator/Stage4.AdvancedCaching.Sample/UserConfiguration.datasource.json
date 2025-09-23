@@ -1,0 +1,20 @@
+{
+  "entityType": "User",
+  "defaultCount": 25,
+  "templates": {
+    "Name": [
+      "Alice Johnson", "Bob Smith", "Carol Williams", "David Brown", "Emma Davis",
+      "Frank Wilson", "Grace Miller", "Henry Garcia", "Ivy Martinez", "Jack Anderson"
+    ],
+    "Email": [
+      "alice.johnson@example.com", "bob.smith@example.com", "carol.williams@example.com",
+      "david.brown@example.com", "emma.davis@example.com", "frank.wilson@example.com"
+    ]
+  },
+  "dependencies": ["UserRole", "UserPreferences"],
+  "externalDependencies": {
+    "userApiEndpoint": "https://api.example.com/users",
+    "authenticationService": "OAuth2",
+    "region": "us-west-2"
+  }
+}

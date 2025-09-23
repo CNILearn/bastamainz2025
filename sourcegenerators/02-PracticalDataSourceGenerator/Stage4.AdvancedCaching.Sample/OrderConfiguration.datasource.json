@@ -1,0 +1,24 @@
+{
+  "entityType": "Order",
+  "defaultCount": 100,
+  "templates": {
+    "OrderId": [
+      "ORD-2024-001", "ORD-2024-002", "ORD-2024-003", "ORD-2024-004", "ORD-2024-005"
+    ],
+    "Status": [
+      "Pending", "Processing", "Shipped", "Delivered", "Cancelled", "Returned"
+    ],
+    "ShippingAddress": [
+      "123 Main St, Anytown, USA", "456 Oak Ave, Springfield, USA", 
+      "789 Pine Rd, Riverside, USA", "321 Elm Dr, Lakewood, USA"
+    ]
+  },
+  "dependencies": ["User", "Product", "Payment", "Shipping"],
+  "externalDependencies": {
+    "orderApiEndpoint": "https://api.example.com/orders",
+    "paymentProcessor": "StripePayments",
+    "shippingProvider": "FedEx",
+    "inventoryService": "InventoryManagement",
+    "region": "us-east-1"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "entityType": "Product",
+  "defaultCount": 50,
+  "templates": {
+    "Name": [
+      "Ultra Gaming Laptop", "Professional Wireless Mouse", "Mechanical Keyboard Pro",
+      "4K Monitor Deluxe", "Noise-Canceling Headphones", "Smartphone Pro Max",
+      "Tablet Ultra", "Smart Watch Series", "Bluetooth Speaker", "Wireless Charger"
+    ],
+    "Description": [
+      "High-performance device for professionals", "Premium quality with extended warranty",
+      "Cutting-edge technology", "User-friendly design", "Industry-leading features"
+    ],
+    "Category": [
+      "Electronics", "Computers", "Accessories", "Mobile", "Gaming", "Office", "Audio"
+    ]
+  },
+  "dependencies": ["ProductCategory", "Supplier", "Inventory"],
+  "externalDependencies": {
+    "productApiEndpoint": "https://api.example.com/products",
+    "inventoryService": "InventoryManagement",
+    "pricingEngine": "DynamicPricing",
+    "region": "global"
+  }
+}
