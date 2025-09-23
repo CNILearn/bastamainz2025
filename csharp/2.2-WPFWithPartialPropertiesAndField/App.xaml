@@ -1,0 +1,17 @@
+<Application x:Class="CSharp14FieldKeywordWpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:CSharp14FieldKeywordWpf.ViewModels"
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+        <!-- Global converters -->
+        <vm:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <vm:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+        <vm:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+        
+        <!-- Global styles -->
+        <Style TargetType="Window">
+            <Setter Property="Background" Value="#FAFAFA"/>
+        </Style>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/3.1-RefStruct/">
+    <Project Path="3.1-RefStruct/RefStruct.csproj" />
+  </Folder>
+  <Folder Name="/3.2-AllowsRefStruct/">
+    <Project Path="3.2-AllowsRefStruct/AllowsRefStruct.csproj" />
+  </Folder>
+  <Folder Name="/3.3-Params/">
+    <Project Path="3.3-Params/Params.csproj" />
+  </Folder>
+  <Folder Name="/3.4-SpanConversion/">
+    <Project Path="3.4-SpanConversion/SpanConversion.csproj" />
+  </Folder>
+  <Folder Name="/3.5-LambdaParameterModifiers/">
+    <Project Path="3.5-LambdaParameterModifiers/LambdaParameterModifiers.csproj" />
+  </Folder>
+</Solution>

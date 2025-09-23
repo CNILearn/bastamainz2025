@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/4.1-LockKeyword/">
+    <Project Path="4.1-LockKeyword/LockKeywordSample.csproj" />
+  </Folder>
+  <Folder Name="/4.2-Interceptors/">
+    <Project Path="4.2-Interceptors/Interceptors.csproj" />
+  </Folder>
+  <Folder Name="/4.3-WebAPINativeAOT/">
+    <Project Path="4.3-WebAPINativeAOT/WebAPINativeAOT.csproj" />
+  </Folder>
+  <Folder Name="/4.4-RuntimeAsync/">
+    <Project Path="4.4-RuntimeAsync/RuntimeAsyncFeature.csproj" />
+  </Folder>
+  <Folder Name="/4.5-RuntimeAsyncBenchmark/">
+    <Project Path="4.5-RuntimeAsyncBenchmark/RuntimeAsyncBenchmarks.csproj" />
+  </Folder>
+</Solution>
