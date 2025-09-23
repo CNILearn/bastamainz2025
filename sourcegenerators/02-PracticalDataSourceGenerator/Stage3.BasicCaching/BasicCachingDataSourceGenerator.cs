@@ -43,7 +43,7 @@ public class BasicCachingDataSourceGenerator : IIncrementalGenerator
             .Collect();
 
         // Cache parsed configurations from additional files
-        var cachedConfigurations = context.AdditionalTextsProvider
+        IncrementalValueProvider<ImmutableArray<CachedDataSourceConfiguration?>> cachedConfigurations = context.AdditionalTextsProvider
             .Where(static file => file.Path.EndsWith(".datasource.json"))
             .Select(static (file, ct) => new
             {
