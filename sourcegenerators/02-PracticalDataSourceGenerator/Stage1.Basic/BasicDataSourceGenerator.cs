@@ -34,7 +34,7 @@ public class BasicDataSourceGenerator : IIncrementalGenerator
             .CreateSyntaxProvider(
                 predicate: static (s, _) => IsSyntaxTargetForGeneration(s),
                 transform: static (ctx, _) => GetSemanticTargetForGeneration(ctx))
-            .Where(static m => m != null)
+            .Where(static m => m is not null)
             .Collect();
 
         // Generate code for each class
@@ -43,6 +43,7 @@ public class BasicDataSourceGenerator : IIncrementalGenerator
 
     private static bool IsSyntaxTargetForGeneration(SyntaxNode node)
     {
+        // pattern matching with type check and property check
         return node is ClassDeclarationSyntax { AttributeLists.Count: > 0 };
     }
 
