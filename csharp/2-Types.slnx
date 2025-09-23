@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/2.1-WPFWithFieldKeyword/">
+    <Project Path="2.1-WPFWithFieldKeyword/CSharp14FieldKeywordWpf.csproj" />
+  </Folder>
+  <Folder Name="/2.2-WPFWithPartialPropertiesAndField/">
+    <Project Path="2.2-WPFWithPartialPropertiesAndField/WPFMVVMToolkit.csproj" />
+  </Folder>
+  <Folder Name="/2.3-WeakEvents/">
+    <Project Path="2.3-WeakEvents/WeakEvents.csproj" />
+  </Folder>
+  <Folder Name="/2.4-ExtensionBlocks/">
+    <Project Path="2.4-ExtensionBlocks/ExtensionBlocks.csproj" />
+  </Folder>
+</Solution>
