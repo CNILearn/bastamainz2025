@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
 		<IsRoslynComponent>true</IsRoslynComponent>
-    <IncludeBuildOutput>true</IncludeBuildOutput>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -12,7 +12,7 @@
     
     <!-- NuGet Package Configuration -->
     <PackageId>HelloWorldGenerator</PackageId>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageVersion>1.0.2</PackageVersion>
     <Authors>HelloWorld Source Generator</Authors>
     <Description>A simple source generator that creates HelloWorld and type introspection methods</Description>
     <PackageTags>source-generator;roslyn;hello-world</PackageTags>
@@ -38,7 +38,5 @@
   <ItemGroup>
 		<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
   </ItemGroup>
-
-  <Target Name="GetTargetPath" Returns="$(TargetPath)" />
 
 </Project>

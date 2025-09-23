@@ -21,7 +21,7 @@ public class HelloWorldSourceGenerator : IIncrementalGenerator
     {
         // Generate the HelloWorld class with both methods
         var sourceCode = GenerateHelloWorldClass(compilation);
-        
+
         context.AddSource("GeneratedHelloWorld.g.cs", SourceText.From(sourceCode, Encoding.UTF8));
     }
 
@@ -79,7 +79,7 @@ public class HelloWorldSourceGenerator : IIncrementalGenerator
 
     private static string GetAvailableTypesAndMethodsInfo(Compilation compilation)
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new();
         sb.AppendLine("=== Compilation Context Information ===");
         sb.AppendLine($"Assembly: {compilation.AssemblyName}");
         sb.AppendLine($"Language: {compilation.Language}");
@@ -118,7 +118,9 @@ public class HelloWorldSourceGenerator : IIncrementalGenerator
             sb.AppendLine();
         }
 
-        return sb.ToString().Replace("\"", "\\\"").Replace("\r\n", "\\n").Replace("\n", "\\n");
+        
+        return sb.ToString().Replace("\"", "\\\"");
+        // return sb.ToString().Replace("\"", "\\\"").Replace("\r\n", "\\n").Replace("\n", "\\n");
     }
 
     private static string GenerateTypeNamesArray(Compilation compilation)
