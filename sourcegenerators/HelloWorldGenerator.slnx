@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="01-HelloWorldGenerator/HelloWorldGenerator.Sample/HelloWorldGenerator.Sample.csproj" />
+  <Project Path="01-HelloWorldGenerator/HelloWorldGenerator.SnapshotTests/HelloWorldGenerator.SnapshotTests.csproj" />
   <Project Path="01-HelloWorldGenerator/HelloWorldGenerator.Tests/HelloWorldGenerator.Tests.csproj" />
   <Project Path="01-HelloWorldGenerator/HelloWorldGenerator/HelloWorldGenerator.csproj" />
 </Solution>
