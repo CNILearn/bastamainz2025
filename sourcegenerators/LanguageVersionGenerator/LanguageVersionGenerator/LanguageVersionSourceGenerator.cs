@@ -16,10 +16,8 @@ public class LanguageVersionSourceGenerator : IIncrementalGenerator
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         // Use ParseOptionsProvider to get language version information
-        var parseOptionsProvider = context.ParseOptionsProvider;
-        
         // Transform parse options to extract language version
-        var languageVersionProvider = parseOptionsProvider
+        var languageVersionProvider = context.ParseOptionsProvider
             .Select(static (parseOptions, ct) => GetLanguageVersionInfo(parseOptions));
 
         // Register source generation based on language version
@@ -51,19 +49,19 @@ public class LanguageVersionSourceGenerator : IIncrementalGenerator
 
         // Fallback for non-C# languages or when version cannot be determined
         return new LanguageVersionInfo(
-            LanguageVersion.CSharp7_3,
-            LanguageVersion.CSharp7_3,
-            "Unknown",
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false
+            languageVersion: LanguageVersion.CSharp7_3,
+            effectiveVersion: LanguageVersion.CSharp7_3,
+            versionString: "Unknown",
+            supportsRecords: false,
+            supportsTopLevelPrograms: false,
+            supportsFileScopedNamespaces: false,
+            supportsGlobalUsings: false,
+            supportsRequiredMembers: false,
+            supportsGenericAttributes: false,
+            supportsPrimaryConstructors: false,
+            supportsCollectionExpressions: false,
+            supportsUsingDeclarations: false,
+            supportsNullCoalescingAssignment: false
         );
     }
 

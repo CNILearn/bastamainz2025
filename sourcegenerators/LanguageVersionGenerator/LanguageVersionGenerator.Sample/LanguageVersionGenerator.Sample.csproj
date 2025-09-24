@@ -5,7 +5,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <!--<ImplicitUsings>enable</ImplicitUsings> don't use when LangVersion < 10.0 -->
     <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
