@@ -7,7 +7,7 @@ namespace SyntaxQuery;
 // Use LINQ queries accessing the syntax tree
 // to find public methods and properties with lowercase first character
 
-// Not using top-level statements because access modifiers are used that are queried
+// Don't change to top-level statements because the app queries for access modifiers in this code
 
 class Program
 {
