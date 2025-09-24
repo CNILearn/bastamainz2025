@@ -13,9 +13,10 @@ public class UnsafeAccessorGeneratorImpl : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
-        // Register the JsonUnsafeAccessorAttribute only once
-        context.RegisterPostInitializationOutput(ctx => ctx.AddSource(
-            "JsonUnsafeAccessorAttribute.g.cs", SourceText.From(JsonUnsafeAccessorAttributeSource, Encoding.UTF8)));
+        //// Register the JsonUnsafeAccessorAttribute only once
+        //// With the sample project this is now not used, instead it uses partial classes with partial methods returning IEnumerable 
+        //context.RegisterPostInitializationOutput(ctx => ctx.AddSource(
+        //    "JsonUnsafeAccessorAttribute.g.cs", SourceText.From(JsonUnsafeAccessorAttributeSource, Encoding.UTF8)));
 
         // Find partial classes that need implementation
         var partialClassesProvider = context.SyntaxProvider
@@ -286,7 +287,7 @@ public class UnsafeAccessorGeneratorImpl : IIncrementalGenerator
 
     private static string GenerateUnsafeAccessorMethods(string typeName, TypeMemberInfo[] typeMembers)
     {
-        var methods = new List<string>();
+        List<string> methods = [];
 
         // Check if this is a record type by looking for backing fields
         bool isRecord = typeMembers.Any(m => m.Kind == TypeMemberKind.RecordBackingField);
@@ -458,33 +459,6 @@ public class UnsafeAccessorGeneratorImpl : IIncrementalGenerator
         }
         return char.ToLower(memberName[0]) + memberName.Substring(1);
     }
-
-
-
-    private const string JsonUnsafeAccessorAttributeSource = """
-        #nullable enable
-        using System;
-
-        namespace UnsafeAccessorGenerator.Attributes
-        {
-            /// <summary>
-            /// Marks a partial class for UnsafeAccessor-based JSON deserialization generation.
-            /// </summary>
-            [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
-            public sealed class JsonUnsafeAccessorAttribute : Attribute
-            {
-                /// <summary>
-                /// The target type to generate UnsafeAccessor methods for.
-                /// </summary>
-                public Type? TargetType { get; set; }
-                
-                /// <summary>
-                /// The JSON file name to process.
-                /// </summary>
-                public string? JsonFileName { get; set; }
-            }
-        }
-        """;
 
     private class ClassInfo(string className, string @namespace, UnsafeAccessorGeneratorImpl.MethodInfo[] partialMethods)
     {

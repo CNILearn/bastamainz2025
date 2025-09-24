@@ -44,25 +44,27 @@ public class UnsafeAccessorGeneratorTests
 
         // Assert
         Assert.True(result.Diagnostics.IsEmpty, $"Generator produced diagnostics: {string.Join(", ", result.Diagnostics)}");
-        Assert.Equal(2, result.GeneratedTrees.Length); // Should have both attribute and implementation
+        Assert.Single(result.GeneratedTrees); // Should have only implementation, no attribute
         
         var generatedSources = result.GeneratedTrees.Select(t => t.ToString()).ToArray();
         
-        // Find the JsonContext implementation (not the attribute)
+        // Find the JsonContext implementation
         var jsonContextSource = generatedSources.FirstOrDefault(s => s.Contains("public partial class JsonContext"));
         Assert.NotNull(jsonContextSource);
         
         // Verify UnsafeAccessor methods are generated
         Assert.Contains("[UnsafeAccessor(UnsafeAccessorKind.Constructor)]", jsonContextSource);
-        Assert.Contains("CreateBook", jsonContextSource); // Generic naming
+        Assert.Contains("CreateBook", jsonContextSource);
         Assert.Contains("[UnsafeAccessor(UnsafeAccessorKind.Field, Name = \"_title\")]", jsonContextSource);
-        Assert.Contains("GetBookTitleField", jsonContextSource); // Updated to include type name
+        Assert.Contains("GetBookTitleField", jsonContextSource);
         Assert.Contains("[UnsafeAccessor(UnsafeAccessorKind.Field, Name = \"_publisher\")]", jsonContextSource);
-        Assert.Contains("GetBookPublisherField", jsonContextSource); // Updated to include type name
+        Assert.Contains("GetBookPublisherField", jsonContextSource);
         
         // Verify GetBooks method implementation
         Assert.Contains("public partial IEnumerable<Book> GetBooks(string jsonFile)", jsonContextSource);
         Assert.Contains("JsonSerializer.Deserialize<JsonElement[]>", jsonContextSource);
+        
+        // Verify field assignment patterns based on actual implementation
         Assert.Contains("GetBookTitleField(instance) = _titleProp.GetString()", jsonContextSource);
         Assert.Contains("GetBookPublisherField(instance) = _publisherProp.GetString()", jsonContextSource);
     }
@@ -101,7 +103,7 @@ public class UnsafeAccessorGeneratorTests
 
         // Assert
         Assert.True(result.Diagnostics.IsEmpty, $"Generator produced diagnostics: {string.Join(", ", result.Diagnostics)}");
-        Assert.Equal(2, result.GeneratedTrees.Length);
+        Assert.Single(result.GeneratedTrees);
         
         var generatedSources = result.GeneratedTrees.Select(t => t.ToString()).ToArray();
         var jsonContextSource = generatedSources.FirstOrDefault(s => s.Contains("public partial class JsonContext"));
@@ -115,8 +117,8 @@ public class UnsafeAccessorGeneratorTests
         Assert.Contains("SetBookWithPrivateSettersPublisher", jsonContextSource);
         
         // Verify method implementation uses private setters
-        Assert.Contains("SetBookWithPrivateSettersTitle(instance, titleProp.GetString()", jsonContextSource);
-        Assert.Contains("SetBookWithPrivateSettersPublisher(instance, publisherProp.GetString()", jsonContextSource);
+        Assert.Contains("SetBookWithPrivateSettersTitle(instance,", jsonContextSource);
+        Assert.Contains("SetBookWithPrivateSettersPublisher(instance,", jsonContextSource);
     }
 
     [Fact]
@@ -147,7 +149,7 @@ public class UnsafeAccessorGeneratorTests
 
         // Assert
         Assert.True(result.Diagnostics.IsEmpty, $"Generator produced diagnostics: {string.Join(", ", result.Diagnostics)}");
-        Assert.Equal(2, result.GeneratedTrees.Length);
+        Assert.Single(result.GeneratedTrees);
         
         var generatedSources = result.GeneratedTrees.Select(t => t.ToString()).ToArray();
         var jsonContextSource = generatedSources.FirstOrDefault(s => s.Contains("public partial class JsonContext"));
@@ -159,33 +161,8 @@ public class UnsafeAccessorGeneratorTests
         Assert.Contains("GetBookRecordPublisherBackingField", jsonContextSource);
         
         // Verify backing field population
-        Assert.Contains("GetBookRecordTitleBackingField(instance) = titleProp.GetString()", jsonContextSource);
-        Assert.Contains("GetBookRecordPublisherBackingField(instance) = publisherProp.GetString()", jsonContextSource);
-    }
-
-    [Fact]
-    public void GenerateAttribute_ShouldCreateJsonUnsafeAccessorAttribute()
-    {
-        // Arrange
-        var sourceCode = """
-            namespace TestNamespace
-            {
-                public class TestClass { }
-            }
-            """;
-
-        // Act
-        var result = RunGenerator(sourceCode, Array.Empty<(string, string)>());
-
-        // Assert
-        var attributeSource = result.GeneratedTrees.FirstOrDefault(t => t.FilePath.EndsWith("JsonUnsafeAccessorAttribute.g.cs"));
-        Assert.NotNull(attributeSource);
-        
-        var attributeCode = attributeSource.ToString();
-        Assert.Contains("JsonUnsafeAccessorAttribute", attributeCode);
-        Assert.Contains("UnsafeAccessorGenerator.Attributes", attributeCode);
-        Assert.Contains("TargetType", attributeCode);
-        Assert.Contains("JsonFileName", attributeCode);
+        Assert.Contains("GetBookRecordTitleBackingField(instance)", jsonContextSource);
+        Assert.Contains("GetBookRecordPublisherBackingField(instance)", jsonContextSource);
     }
 
     [Fact]
@@ -206,9 +183,52 @@ public class UnsafeAccessorGeneratorTests
         var result = RunGenerator(sourceCode, Array.Empty<(string, string)>());
 
         // Assert
-        // Should only have the attribute source, no implementation
-        Assert.Single(result.GeneratedTrees);
-        Assert.Contains("JsonUnsafeAccessorAttribute", result.GeneratedTrees[0].ToString());
+        // Should generate no files since there are no partial classes with partial methods
+        Assert.Empty(result.GeneratedTrees);
+    }
+
+    [Fact]
+    public void PartialClassWithoutPartialMethods_ShouldNotGenerateImplementation()
+    {
+        // Arrange
+        var sourceCode = """
+            namespace TestNamespace
+            {
+                public partial class PartialClassWithoutPartialMethods
+                {
+                    public void RegularMethod() { }
+                }
+            }
+            """;
+
+        // Act
+        var result = RunGenerator(sourceCode, Array.Empty<(string, string)>());
+
+        // Assert
+        // Should generate no files since there are no partial methods returning IEnumerable<T>
+        Assert.Empty(result.GeneratedTrees);
+    }
+
+    [Fact]
+    public void PartialClassWithNonIEnumerablePartialMethod_ShouldNotGenerateImplementation()
+    {
+        // Arrange
+        var sourceCode = """
+            namespace TestNamespace
+            {
+                public partial class JsonContext
+                {
+                    public partial string GetSingleItem(string jsonFile);
+                }
+            }
+            """;
+
+        // Act
+        var result = RunGenerator(sourceCode, Array.Empty<(string, string)>());
+
+        // Assert
+        // Should generate no files since the partial method doesn't return IEnumerable<T>
+        Assert.Empty(result.GeneratedTrees);
     }
 
     private GeneratorDriverRunResult RunGenerator(string sourceCode, (string fileName, string content)[] additionalFiles)

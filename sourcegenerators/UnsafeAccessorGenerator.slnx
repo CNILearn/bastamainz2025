@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="UnsafeAccessorGenerator/UnsafeAccessorGenerator.Sample/UnsafeAccessorGenerator.Sample.csproj" />
+  <Project Path="UnsafeAccessorGenerator/UnsafeAccessorGenerator.Tests/UnsafeAccessorGenerator.Tests.csproj" />
+  <Project Path="UnsafeAccessorGenerator/UnsafeAccessorGenerator/UnsafeAccessorGenerator.csproj" />
+</Solution>

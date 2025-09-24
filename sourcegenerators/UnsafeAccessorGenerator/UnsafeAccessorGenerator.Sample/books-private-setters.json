@@ -1,10 +1,14 @@
 [
   {
-    "title": "Effective C#",
-    "publisher": "Addison-Wesley"
+    "title": "Pragmatic Microservices",
+    "publisher": "Packt Publishing"
   },
   {
-    "title": "C# in Depth",
-    "publisher": "Manning"
+    "title": "Expert C#",
+    "publisher": "Packt Publishing"
+  },
+  {
+    "title": "Professional C#",
+    "publisher": "Wiley"
   }
 ]
