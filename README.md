@@ -73,5 +73,6 @@ Was ist bei der Entwicklung von C# Source Generators zu beachten? Wie funktionie
   - Stage 5: Cache optimizations
   - Stage 6: (based on Stage 3) more efficient attribute (marker) search
 - C# version: generate different code based on C# version
+- Partial events: use weak events with partial members
 - Access private members of types (Context type with initalization from JSON data)
 - Call-site rewriting (ActivitySource)
