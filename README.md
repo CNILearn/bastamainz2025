@@ -1,10 +1,21 @@
 # BASTA! Mainz 2025
 
-Source code und slides for BASTA! Mainz 2025
+Source code und Slides for BASTA! Mainz 2025
+
+- C# 13 and C# 14 - Was gibt es Neues?
+- Developing und Debugging Source Generators
 
 ## Christian Nagel
 
 ...ist Buchautor, Microsoft MVP für .NET, Gründer von CN innovation, Softwarearchitekt und -entwickler mit Microsoft-.NET-Technologien. Er arbeitet seit mehr als 25 Jahren als Softwareentwickler auf unterschiedlichsten Plattformen und mit unterschiedlichen Technologien und Sprachen, startete mit PDP 11 und VAX/VMS-Systemen. Seit dem Jahr 2000 arbeitet er an verteilten .NET-Lösungen, wozu er sein Wissen auch in zahlreichen Büchern vermittelt, u. a. im neuesten Buch Professional C# and .NET - 2021 Edition. Seine Schwerpunkte sind heute Microsoft Azure, ASP.NET Core, Web-API, EF Core, WinUI und .NET MAUI.
+
+## Links
+
+- [C# Blog](https://csharp.christiannagel.com)
+- [CN innovation](https://www.cninnovation.com)
+- [Pragmatic Microservices with C# and Azure](https://github.com/PacktPublishing/Pragmatic-Microservices-with-CSharp-and-Azure/)
+- [Expert C#](https://github.com/PacktPublishing/Expert-CSharp-Programming)
+- [Codebreaker App - .NET Aspire](https://github.com/codebreakerapp)
 
 ## C# 13 und C# 14 - Was gibt es Neues?
 
@@ -39,10 +50,28 @@ C# 13 ist released, und C# 14 steht vor der Tür. In dieser Session lernen Sie n
   - Interceptors
   - Native AOT
   - Runtime Async
- 
-## Links
+  
+## Developing und Debugging Source Generators
 
-- [C# Blog](https://csharp.christiannagel.com)
-- [CN innovation](https://www.cninnovation.com)
-- [Pragmatic Microservices with C# and Azure](https://github.com/PacktPublishing/Pragmatic-Microservices-with-CSharp-and-Azure/)
- 
+Mittwoch, 24. September 2025, 17:00 - 18:00 Uhr, Zagrebsaal
+
+Was ist bei der Entwicklung von C# Source Generators zu beachten? Wie funktionieren Source Generators, was ist möglich, was sollte bei der Entwicklung beachtet werden? Anhand spannender Erweiterungen, die die Produktivität in der Entwicklung steigern können, werden wichtige Teile von Source Generators gezeigt, und wie diese debuggt werden können.
+
+### Slides
+
+[Source generators (PDF)](slides/SourceGenerators.pdf)
+
+### [Source generators Samples](sourcegenerators)
+
+- Roslyn (Syntax and semantic model)
+- Hello world generator
+- Practical source generator
+  - Stage 1: DataSource attribute, create a factory of items
+  - Stage 2: Add external data source for configuration of factory
+  - Stage 3: Cache external data source
+  - Stage 4: Cache enhancements
+  - Stage 5: Cache optimizations
+  - Stage 6: (based on Stage 3) more efficient attribute (marker) search
+- C# version: generate different code based on C# version
+- Access private members of types (Context type with initalization from JSON data)
+- Call-site rewriting (ActivitySource)

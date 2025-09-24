@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="LanguageVersionGenerator/LanguageVersionGenerator.Sample/LanguageVersionGenerator.Sample.csproj" />
+  <Project Path="LanguageVersionGenerator/LanguageVersionGenerator.Tests/LanguageVersionGenerator.Tests.csproj" />
+  <Project Path="LanguageVersionGenerator/LanguageVersionGenerator/LanguageVersionGenerator.csproj" />
+</Solution>

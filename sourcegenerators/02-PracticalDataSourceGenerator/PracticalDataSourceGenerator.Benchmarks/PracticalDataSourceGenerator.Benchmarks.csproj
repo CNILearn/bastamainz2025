@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.15.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Stage2.FileIntegration/Stage2.FileIntegration.csproj" />
+    <ProjectReference Include="../Stage3.BasicCaching/Stage3.BasicCaching.csproj" />
+    <ProjectReference Include="../Stage4.AdvancedCaching/Stage4.AdvancedCaching.csproj" />
+    <ProjectReference Include="../Stage5.Optimized/Stage5.Optimized.csproj" />
+    <ProjectReference Include="../Stage6.ForAttributeWithMetadataName/Stage6.ForAttributeWithMetadataName.csproj" />
+  </ItemGroup>
+
+</Project>

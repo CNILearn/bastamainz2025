@@ -1,0 +1,13 @@
+{
+  "entityType": "TestEntity",
+  "defaultCount": 5,
+  "templates": {
+    "Name": ["Test1", "Test2", "Test3"],
+    "Value": ["Value1", "Value2", "Value3"]
+  },
+  "dependencies": ["TestDependency"],
+  "externalDependencies": {
+    "testEndpoint": "https://test.example.com",
+    "testService": "TestService"
+  }
+}
