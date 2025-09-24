@@ -14,7 +14,7 @@ class Program
 
     static async Task ProcessAsync()
     {
-        string source = File.ReadAllText("../../../HelloWorld.cs");
+        string source = File.ReadAllText("./HelloWorld.cs");
 
         // get syntax information first
         SyntaxTree tree = CSharpSyntaxTree.ParseText(source);
