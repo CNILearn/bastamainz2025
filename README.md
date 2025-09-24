@@ -42,3 +42,20 @@ C# 13 ist released, und C# 14 steht vor der Tür. In dieser Session lernen Sie n
 Mittwoch, 24. September 2025, 17:00 - 18:00 Uhr, Zagrebsaal
 
 Was ist bei der Entwicklung von C# Source Generators zu beachten? Wie funktionieren Source Generators, was ist möglich, was sollte bei der Entwicklung beachtet werden? Anhand spannender Erweiterungen, die die Produktivität in der Entwicklung steigern können, werden wichtige Teile von Source Generators gezeigt, und wie diese debuggt werden können.
+
+[Source generators (PDF)](slides/Sourcegenerators.pdf)
+
+### [Source generators Samples](sourcegenerators)
+
+- Roslyn (Syntax and semantic model)
+- Hello world generator
+- Practical source generator
+  - Stage 1: DataSource attribute, create a factory of items
+  - Stage 2: Add external data source for configuration of factory
+  - Stage 3: Cache external data source
+  - Stage 4: Cache enhancements
+  - Stage 5: Cache optimizations
+  - Stage 6: (based on Stage 3) more efficient attribute (marker) search
+- C# version: generate different code based on C# version
+- Access private members of types (Context type with initalization from JSON data)
+- Call-site rewriting (ActivitySource)
