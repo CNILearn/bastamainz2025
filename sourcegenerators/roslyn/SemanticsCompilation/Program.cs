@@ -15,6 +15,8 @@ class Program
     static async Task ProcessAsync()
     {
         string source = File.ReadAllText("../../../HelloWorld.cs");
+
+        // get syntax information first
         SyntaxTree tree = CSharpSyntaxTree.ParseText(source);
         if (await tree.GetRootAsync() is CompilationUnitSyntax root)
         {
@@ -31,6 +33,8 @@ class Program
                 .OfType<VariableDeclaratorSyntax>()
                 .Where(v => v.Identifier.ValueText == "hello")
                 .FirstOrDefault();
+
+            // for symbols, let's compile
 
             var compilation = CSharpCompilation.Create("HelloWorld")
                 .AddReferences(MetadataReference.CreateFromFile(typeof(object).Assembly.Location))
