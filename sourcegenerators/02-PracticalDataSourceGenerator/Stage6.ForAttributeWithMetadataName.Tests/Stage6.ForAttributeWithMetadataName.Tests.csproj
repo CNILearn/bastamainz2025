@@ -5,20 +5,21 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
-    <OutputType>Exe</OutputType>
+    <IsTestProject>true</IsTestProject>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.15.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../Stage2.FileIntegration/Stage2.FileIntegration.csproj" />
-    <ProjectReference Include="../Stage3.BasicCaching/Stage3.BasicCaching.csproj" />
-    <ProjectReference Include="../Stage4.AdvancedCaching/Stage4.AdvancedCaching.csproj" />
-    <ProjectReference Include="../Stage5.Optimized/Stage5.Optimized.csproj" />
     <ProjectReference Include="../Stage6.ForAttributeWithMetadataName/Stage6.ForAttributeWithMetadataName.csproj" />
   </ItemGroup>
 

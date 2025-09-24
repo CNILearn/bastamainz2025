@@ -24,5 +24,10 @@
     <Project Path="02-PracticalDataSourceGenerator/Stage5.Optimized.Tests/Stage5.Optimized.Tests.csproj" />
     <Project Path="02-PracticalDataSourceGenerator/Stage5.Optimized/Stage5.Optimized.csproj" />
   </Folder>
+  <Folder Name="/Stage6/">
+    <Project Path="02-PracticalDataSourceGenerator/Stage6.ForAttributeWithMetadataName.Sample/Stage6.ForAttributeWithMetadataName.Sample.csproj" />
+    <Project Path="02-PracticalDataSourceGenerator/Stage6.ForAttributeWithMetadataName.Tests/Stage6.ForAttributeWithMetadataName.Tests.csproj" />
+    <Project Path="02-PracticalDataSourceGenerator/Stage6.ForAttributeWithMetadataName/Stage6.ForAttributeWithMetadataName.csproj" />
+  </Folder>
   <Project Path="02-PracticalDataSourceGenerator/PracticalDataSourceGenerator.Benchmarks/PracticalDataSourceGenerator.Benchmarks.csproj" />
 </Solution>
