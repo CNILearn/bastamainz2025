@@ -1,9 +1,21 @@
 # BASTA! Mainz 2025
 
-Source code and slides for BASTA! Mainz 2025
+Source code und Slides for BASTA! Mainz 2025
 
 - C# 13 and C# 14 - Was gibt es Neues?
 - Developing und Debugging Source Generators
+
+## Christian Nagel
+
+...ist Buchautor, Microsoft MVP für .NET, Gründer von CN innovation, Softwarearchitekt und -entwickler mit Microsoft-.NET-Technologien. Er arbeitet seit mehr als 25 Jahren als Softwareentwickler auf unterschiedlichsten Plattformen und mit unterschiedlichen Technologien und Sprachen, startete mit PDP 11 und VAX/VMS-Systemen. Seit dem Jahr 2000 arbeitet er an verteilten .NET-Lösungen, wozu er sein Wissen auch in zahlreichen Büchern vermittelt, u. a. im neuesten Buch Professional C# and .NET - 2021 Edition. Seine Schwerpunkte sind heute Microsoft Azure, ASP.NET Core, Web-API, EF Core, WinUI und .NET MAUI.
+
+## Links
+
+- [C# Blog](https://csharp.christiannagel.com)
+- [CN innovation](https://www.cninnovation.com)
+- [Pragmatic Microservices with C# and Azure](https://github.com/PacktPublishing/Pragmatic-Microservices-with-CSharp-and-Azure/)
+- [Expert C#](https://github.com/PacktPublishing/Expert-CSharp-Programming)
+- [Codebreaker App - .NET Aspire](https://github.com/codebreakerapp)
 
 ## C# 13 und C# 14 - Was gibt es Neues?
 
@@ -11,9 +23,11 @@ Dienstag, 23. September 2025, 10:45 - 11:45 Uhr, Gutenberg 1
 
 C# 13 ist released, und C# 14 steht vor der Tür. In dieser Session lernen Sie neue Features in C# kennen, und erfahren, wie diese mit .NET verwendet werden. Wir behandeln z. B. Erweiterungen von partial members, und wie diese in .NET mit Source Generators genutzt werden, welche Vorteile Runtime Async in Applikationen bringen kann, was hinter dem Span Typ steckt und wie er First-Class wird, und wie Extensions nicht mehr nur mit Methoden möglich sind.
 
+### Slides
+
 [C# 13 und C# 14 - Was gibt es Neues? (PDF)](slides/CSharp14.pdf)
 
-## [C# Samples](csharp)
+### [C# Samples](csharp)
 
 - Simple
   - Escacpe character game
@@ -43,7 +57,9 @@ Mittwoch, 24. September 2025, 17:00 - 18:00 Uhr, Zagrebsaal
 
 Was ist bei der Entwicklung von C# Source Generators zu beachten? Wie funktionieren Source Generators, was ist möglich, was sollte bei der Entwicklung beachtet werden? Anhand spannender Erweiterungen, die die Produktivität in der Entwicklung steigern können, werden wichtige Teile von Source Generators gezeigt, und wie diese debuggt werden können.
 
-[Source generators (PDF)](slides/Sourcegenerators.pdf)
+### Slides
+
+[Source generators (PDF)](slides/SourceGenerators.pdf)
 
 ### [Source generators Samples](sourcegenerators)
 
