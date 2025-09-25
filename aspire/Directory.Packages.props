@@ -11,7 +11,7 @@
     <PackageVersion Include="Aspire.Hosting.Kubernetes" Version="9.2.1-preview.1.25222.1" />
     <PackageVersion Include="Aspire.Hosting.PostgreSQL" Version="9.4.2" />
     <PackageVersion Include="Aspire.Hosting.Valkey" Version="9.2.1" />
-    <PackageVersion Include="Aspire.Microsoft.Azure.Cosmos" Version="9.3.0" />
+    <PackageVersion Include="Aspire.Microsoft.Azure.Cosmos" Version="9.4.2" />
     <PackageVersion Include="Aspire.Azure.Messaging.EventHubs" Version="9.3.0" />
     <PackageVersion Include="Aspire.Azure.Storage.Blobs" Version="9.3.0" />
     <PackageVersion Include="Aspire.Azure.Storage.Queues" Version="9.3.0" />
@@ -68,14 +68,14 @@
     <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.5" />
     <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="9.0.5" />
     <PackageVersion Include="Microsoft.AspNetCore.SignalR.Protocols.MessagePack" Version="9.0.5" />
-    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.9" />
     <PackageVersion Include="Microsoft.Authentication.WebAssembly.Msal" Version="9.0.5" />
     <PackageVersion Include="Microsoft.Azure.AppConfiguration.AspNetCore" Version="8.3.0" />
     <PackageVersion Include="Microsoft.Azure.Cosmos" Version="3.53.1" />
     <PackageVersion Include="Microsoft.Azure.SignalR" Version="1.30.3" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Cosmos" Version="9.0.8" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.9" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.5" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.8" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.8" />
@@ -88,7 +88,7 @@
     <PackageVersion Include="Microsoft.Extensions.Diagnostics.Testing" Version="9.8.0" />
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="9.0.8" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.8" />
-    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.8.0" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.9.0" />
     <PackageVersion Include="Microsoft.Extensions.Localization" Version="9.0.5" />
     <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="9.4.2" />
     <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery.Yarp" Version="9.2.1" />
