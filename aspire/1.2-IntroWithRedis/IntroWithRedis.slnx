@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="IntroWithRedis.ApiService/IntroWithRedis.ApiService.csproj" />
+  <Project Path="IntroWithRedis.AppHost/IntroWithRedis.AppHost.csproj" />
+  <Project Path="IntroWithRedis.ServiceDefaults/IntroWithRedis.ServiceDefaults.csproj" />
+  <Project Path="IntroWithRedis.Web/IntroWithRedis.Web.csproj" />
+</Solution>
