@@ -1,0 +1,48 @@
+services:
+  codebreaker-dashboard:
+    image: "mcr.microsoft.com/dotnet/nightly/aspire-dashboard:latest"
+    expose:
+      - "18888"
+      - "18889"
+    networks:
+      - "aspire"
+    restart: "always"
+  codebreaker-gameapis:
+    image: "${CODEBREAKER_GAMEAPIS_IMAGE}"
+    environment:
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "in_memory"
+      ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
+      HTTP_PORTS: "${CODEBREAKER_GAMEAPIS_PORT}"
+      DataStore: "${DATASTORE}"
+      ConnectionStrings__codebreaker-games: "AccountEndpoint=${COSMOS_DB_OUTPUTS_CONNECTIONSTRING};Database=codebreaker-games"
+      OTEL_EXPORTER_OTLP_ENDPOINT: "http://codebreaker-dashboard:18889"
+      OTEL_EXPORTER_OTLP_PROTOCOL: "grpc"
+      OTEL_SERVICE_NAME: "codebreaker-gameapis"
+    ports:
+      - "${CODEBREAKER_GAMEAPIS_PORT}"
+    networks:
+      - "aspire"
+  codebreaker-bot:
+    image: "${CODEBREAKER_BOT_IMAGE}"
+    environment:
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "in_memory"
+      ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
+      HTTP_PORTS: "${CODEBREAKER_BOT_PORT}"
+      services__codebreaker-gameapis__http__0: "http://codebreaker-gameapis:${CODEBREAKER_GAMEAPIS_PORT}"
+      OTEL_EXPORTER_OTLP_ENDPOINT: "http://codebreaker-dashboard:18889"
+      OTEL_EXPORTER_OTLP_PROTOCOL: "grpc"
+      OTEL_SERVICE_NAME: "codebreaker-bot"
+    ports:
+      - "${CODEBREAKER_BOT_PORT}"
+    depends_on:
+      codebreaker-gameapis:
+        condition: "service_started"
+    networks:
+      - "aspire"
+networks:
+  aspire:
+    driver: "bridge"
