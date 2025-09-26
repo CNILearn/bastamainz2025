@@ -42,3 +42,22 @@ Wait until the Azure Cosmos DB account is created, and the application is starte
 Check the user secrets in the app-host project to see the Azure resources added by .NET Aspire. The same configuration is used when you re-run the application. You no longer need to wait for the deployment of the resources.
 
 After the lab, you need to clean up the resources, e.g. by deleting the resource group you created.
+
+## Access rights to see the data in Azure Comos DB
+
+Show the principal id of the user
+
+```bash
+az ad signed-in-user show --query objectId --output tsv
+```
+
+Assign the role to all containers in the database
+
+```bash
+az cosmosdb sql role assignment create \
+  --account-name <CosmosDBAccountName> \
+  --resource-group <ResourceGroupName> \
+  --role-definition-name "Cosmos DB Built-in Data Contributor" \
+  --scope "/dbs/<DatabaseName>" \
+  --principal-id <AADObjectId>
+```
