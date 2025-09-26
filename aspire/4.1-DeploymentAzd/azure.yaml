@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: 4-1-deploymentazd
+services:  
+  app:
+    language: dotnet
+    project: ./Codebreaker.Backend.AppHost/Codebreaker.Backend.AppHost.csproj
+    host: containerapp

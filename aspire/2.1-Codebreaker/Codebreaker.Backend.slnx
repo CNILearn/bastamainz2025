@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CodeBreaker.Bot/CodeBreaker.Bot.csproj" />
+  <Project Path="Codebreaker.GameAPIs/Codebreaker.GameAPIs.csproj" />
+</Solution>

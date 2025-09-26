@@ -4,6 +4,7 @@ Source code und Slides for BASTA! Mainz 2025
 
 - C# 13 and C# 14 - Was gibt es Neues?
 - Developing und Debugging Source Generators
+- Umbau eines .NET Backends mit .NET Aspire (Workshop)
 
 ## Christian Nagel
 
@@ -76,3 +77,13 @@ Was ist bei der Entwicklung von C# Source Generators zu beachten? Wie funktionie
 - Partial events: use weak events with partial members
 - Access private members of types (Context type with initalization from JSON data)
 - Call-site rewriting (ActivitySource)
+
+## Umbau eines .NET Backends mit .NET Aspire (Workshop)
+
+Freitag, 26. September 2025, 09:00 - 16:30 Uhr, Gutenberg 3
+
+In diesem praxisorientierten Workshop refaktorieren und migrieren wir eine bestehende .NET‑Backend‑Solution auf .NET Aspire. Teilnehmende lernen, wie man Integrationen für Datenbanken, Caching, Authentication und Messaging implementiert, das .NET Aspire Dashboard zur Live‑Beobachtung nutzt und die Lösung nach Azure deployed. Ziel ist ein produktionsfähiger, skalierbarer Microservice‑Stack mit Monitoring, Sicherheit und optimierter Performance.
+
+### Slides
+
+[Umbau eines .NET Backends mit .NET Aspire (PDF)](slides/Aspire2025.pdf)
