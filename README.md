@@ -84,6 +84,10 @@ Freitag, 26. September 2025, 09:00 - 16:30 Uhr, Gutenberg 3
 
 In diesem praxisorientierten Workshop refaktorieren und migrieren wir eine bestehende .NET‑Backend‑Solution auf .NET Aspire. Teilnehmende lernen, wie man Integrationen für Datenbanken, Caching, Authentication und Messaging implementiert, das .NET Aspire Dashboard zur Live‑Beobachtung nutzt und die Lösung nach Azure deployed. Ziel ist ein produktionsfähiger, skalierbarer Microservice‑Stack mit Monitoring, Sicherheit und optimierter Performance.
 
+### NullReferenceException with Aspire 9.5
+
+The issue we had when running the application with Aspire 9.5 can be resolved by explicitly adding Azure.Identity 1.16.0: https://github.com/Azure/azure-sdk-for-net/issues/52431
+
 ### Slides
 
 [Umbau eines .NET Backends mit .NET Aspire (PDF)](slides/Aspire2025.pdf)
